@@ -20,9 +20,9 @@ def main(req: func.HttpRequest) -> func.HttpResponse:
 
     if data:
         data = json.loads(base64.b64decode(data).decode('utf-8'))
-        points = data['points']
+        config = data['config']
         
-        camera = Camera(points)
+        camera = Camera(config)
         camera_position,rotM = camera.camera_position()
 
         output = dict()
